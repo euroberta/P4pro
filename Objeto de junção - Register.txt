@@ -1,0 +1,24 @@
+------ Objeto Register------
+
+Label: Register;
+Object Name:  Register;
+
+Record Name Código
+Data Type: Auto Number;
+Display Format- Register-{0000}; 
+Starting Number: 0;
+
+
+Em Register existe um relacionamento Lookup(Account); 
+Field Label - Company;
+Field Name  - Company;
+Child Relationship Name - Company_Register;
+
+Em Register existe um relacionamento Lookup(Contact);  
+Field Label:  Student; 
+Field Name:  Student; 
+Child Relationship Name: Contact_register;
+
+
+
+

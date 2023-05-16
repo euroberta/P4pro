@@ -1,0 +1,21 @@
+List<String> instructors = new List<String>{'Carlos Sergio', 'Giovanna Carvalho', 'Pedro Elder'};
+List<String> stages = new List<String>{'Introdução ao BPM', 'Organização e Arquitetura de Processos', 'Transformação de Processos', 'Tecnologias para Processos', 'Mudando o Estilo de Modelagem de Fluxograma para BPMN 2.0', 'Modelagem de Processos com BPMN e Bizagi Modeler', 'Automação de Processos - Básico', 'Automação de Processos - Avançado'};
+List<String> modalities = new List<String>{'face-to-face instruction', 'online', 'blended learning'};
+
+List<Contact> contacts = [SELECT Id FROM Contact];
+Integer numContacts = contacts.size();
+
+List<registers__c> registers = new List<registers__c>();
+
+for(Integer i = 0; i < 1; i++){
+    Registers__c reg = new Registers__c();
+    
+    reg.Instructor__c = instructors[Math.mod(i, instructors.size())];
+    reg.StagesEducation__c = stages[Math.mod(i, stages.size())];
+    reg.PurchaseDate__c = Date.today().addDays(-1 * (Math.mod(i, 30) + 1)); 
+    reg.Modality__c = modalities[Math.mod(i, modalities.size())];
+    reg.Student__c = contacts[Math.mod(i, numContacts)].Id;
+    registers.add(reg);
+}
+
+insert registers;

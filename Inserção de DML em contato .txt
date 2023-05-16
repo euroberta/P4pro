@@ -1,0 +1,22 @@
+List<String> nomes = new List<String>{'João', 'Maria', 'Pedro', 'Ana', 'Luiza', 'Lucas', 'Felipe', 'Mariana', 'Juliana', 'Fernanda', 'Thiago', 'Gustavo', 'Roberta', 'Rafaela', 'Diego', 'Renata', 'Eduardo', 'Henrique', 'Marcela', 'Camila'};
+List<String> sobrenomes = new List<String>{'Silva', 'Santos', 'Oliveira', 'Souza', 'Ferreira', 'Costa', 'Pereira', 'Rodrigues', 'Almeida', 'Nascimento', 'Ribeiro', 'Barbosa', 'Gonçalves', 'Lima', 'Carvalho', 'Araújo', 'Moura', 'Martins', 'Cardoso', 'Moreira'};
+List<String> tratamentos = new List<String>{'Mr', 'Mrs', 'Prof', 'Dr'};
+List<String> departamentos = new List<String>{'Vendas','Marketing','TI','Financeiro','Recursos Humanos','Logística','Atendimento ao Cliente','Desenvolvimento', 'Jurídico', 'Administrativo'};
+List<Contact> contatos = new List<Contact>();
+for (Integer i = 0; i < 1; i++) {
+    Contact c = new Contact();
+    c.FirstName = nomes[(Integer)Math.floor(Math.random()*nomes.size())];
+    c.LastName = sobrenomes[(Integer)Math.floor(Math.random()*sobrenomes.size())];
+    c.Title = tratamentos[(Integer)Math.floor(Math.random()*tratamentos.size())];
+    c.Phone = String.valueOf((Integer)Math.floor(Math.random()*9000000)+1000000);
+    c.Department = departamentos[(Integer)Math.floor(Math.random()*departamentos.size())];
+    
+    if (Math.random() < 0.5) {
+        c.LeadSource = 'DML insertion';
+    } else {
+        c.LeadSource = 'DML insertion';
+    }
+    contatos.add(c);
+}
+insert contatos;
+System.debug(contatos);
